@@ -1,4 +1,4 @@
-public class One {
+public class OneS {
   String message = "foo";
 
   public String foo() {
