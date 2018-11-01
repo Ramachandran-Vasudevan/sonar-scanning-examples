@@ -48,13 +48,37 @@
 	<target name="compile" depends="init">
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" fork="true" debug="true" includeAntRuntime="false" />
 		<!-- added by sunil -->
-		<javac srcdir="${test.dir}" destdir="${classes.dir}" classpathref="classpath" />
+		<javac srcdir="${test.dir}" destdir="${classes.dir}" />
 	</target>
 	
 	<!-- added by sunil -->
-        <path id="classpath">
-        	<fileset dir="${lib.junit.dir}" includes="*.jar"/>
-    	</path>
+	<target name="test" depends="compile">
+   
+        <taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
+            <classpath path="C:\Users\css93164\.jenkins\tools\hudson.tasks.Ant_AntInstallation\Ant\apache-ant-1.10.5\lib\junit-4.9.jar" />
+        </taskdef>
+   
+        <!-- Import the JaCoCo Ant Task -->
+        <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+           <classpath path="C:\Users\css93164\.jenkins\tools\hudson.tasks.Ant_AntInstallation\Ant\apache-ant-1.10.5\lib\jacocoant.jar" />
+        </taskdef>
+   
+        <!-- Run your unit tests, adding the JaCoCo agent -->
+        <jacoco:coverage destfile="target/jacoco.exec" xmlns:jacoco="antlib:org.jacoco.ant">
+          <junit fork="yes" dir="${basedir}" failureProperty="test.failed">
+            <classpath location="${classes.dir}" />
+            
+
+            <formatter type="xml" />
+            <batchtest todir="${reports.junit.xml.dir}">
+              <fileset dir="${test.dir}">
+                <include name="**/*Test.java" />
+              </fileset>
+            </batchtest>
+          </junit>
+        </jacoco:coverage>   
+       
+    </target>
 	
 	<!-- ========= Define SonarQube Scanner for Ant Target ========= -->
 	<target name="sonar" depends="compile">
