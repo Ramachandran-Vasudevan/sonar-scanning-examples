@@ -41,6 +41,7 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${classes.dir}" />
 		<!-- added by sunil -->
+		<mkdir dir=${test.dir}" />
 		<mkdir dir="${reports.dir}" />
         	<mkdir dir="${reports.junit.xml.dir}" />
 	</target>
