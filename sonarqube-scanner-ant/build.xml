@@ -73,7 +73,9 @@
    
         <!-- Import the JaCoCo Ant Task -->
         <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-           
+           <classpath>
+                <path refid="classpath" />
+            </classpath>
         </taskdef>
    
         <!-- Run your unit tests, adding the JaCoCo agent -->
