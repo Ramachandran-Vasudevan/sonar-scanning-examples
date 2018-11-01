@@ -6,5 +6,4 @@ public class OneTest {
     One one = new One();
     assertEquals("foo", one.foo());
    }
-   }
 }
