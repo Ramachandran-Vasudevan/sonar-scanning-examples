@@ -6,6 +6,7 @@
 	<property name="build.dir" value="target" />
 	<property name="classes.dir" value="${build.dir}/classes" />
 	<!-- Added by Sunil -->
+	<property name="lib.junit.dir" value="lib" />
 	<property name="test.dir" value="test" />
 	<property name="reports.dir" value="${build.dir}/reports" />
         <property name="reports.junit.xml.dir" value="${reports.dir}/junit" />
@@ -32,6 +33,8 @@
 	
 	<!-- ========= Define "regular" targets: clean, compile, ... ========= -->
 	<target name="clean">
+		<!-- added by sunil only below line -->
+		<delete dir=".sonar" />
 		<delete dir="${build.dir}" />
 		<!-- added by sunil -->
 		<delete dir="${reports.dir}" />
@@ -41,8 +44,6 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${classes.dir}" />
 		<!-- added by sunil -->
-		<mkdir dir="${lib.dir}" />
-		<mkdir dir="${test.dir}" />
 		<mkdir dir="${reports.dir}" />
         	<mkdir dir="${reports.junit.xml.dir}" />
 	</target>
