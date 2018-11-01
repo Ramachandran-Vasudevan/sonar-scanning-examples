@@ -10,6 +10,9 @@
 	<property name="test.dir" value="test" />
 	<property name="reports.dir" value="${build.dir}/reports" />
         <property name="reports.junit.xml.dir" value="${reports.dir}/junit" />
+	<property name="junit.class.name" value="AllTests"/>
+        <property name="test.data.dir" location="${build.dir}/test/data"/>
+	<property name="test.htmlreports.dir" location="${build.dir}/test/htmlreports"/>
 	
 	<!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
 	<property name="sonar.host.url" value="http://localhost:9000" />
@@ -56,7 +59,7 @@
 	
 	<!-- added by sunil -->
 	<path id="classpath">
-        	<fileset dir="${lib.junit.dir}" includes="*.jar"/>
+        	<fileset dir="${lib.junit.dir}" includes="*.jar" />
     	</path>
 	
 	<!-- added by sunil -->
@@ -64,7 +67,7 @@
    
         <taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
             <classpath>
-                <path refid="classpath"/>
+                <path refid="classpath" />
             </classpath>
         </taskdef>
    
