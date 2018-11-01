@@ -59,7 +59,7 @@
 	
 	<!-- added by sunil -->
 	<path id="classpath">
-            <pathelement location="${build.dir}/lib/junit-4.9.jar" />
+            <pathelement location="${build.dir}/lib/*.jar" />
 	    <pathelement location="${test.dir}" />
     	</path>
 	
