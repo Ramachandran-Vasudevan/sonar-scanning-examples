@@ -41,6 +41,7 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${classes.dir}" />
 		<!-- added by sunil -->
+		<mkdir dir="${lib.dir}" />
 		<mkdir dir="${test.dir}" />
 		<mkdir dir="${reports.dir}" />
         	<mkdir dir="${reports.junit.xml.dir}" />
@@ -93,6 +94,6 @@
 	</target>
 
 	<!-- ========= The main target "all" ========= -->
-	<target name="all" depends="clean,compile,sonar" />
+	<target name="all" depends="clean,compile,test,sonar" />
 
 </project>
